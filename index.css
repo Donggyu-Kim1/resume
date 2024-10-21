@@ -63,11 +63,11 @@ a:hover {
     gap: 10px;
 }
 .skill-tag {
-    background-color: #f0f0f0;
+    background-color: #dfe2f5;
     padding: 5px 10px;
     border-radius: 5px;
 }
-.project, .education {
+.project, .education, .experience {
     margin-bottom: 20px;
 }
 @media (max-width: 600px) {
@@ -85,4 +85,187 @@ a:hover {
     cursor: pointer;
     color: #0066cc;
     text-decoration: underline;
+}
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+.two-column {
+    display: flex;
+    justify-content: space-between;
+}
+.column {
+    width: 48%;
+}
+.timeline-section {
+    margin-bottom: 50px;
+}
+
+.timeline-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ... (이전 스타일은 동일) ... */
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #474e5d;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+    .timeline-item {
+        padding: 10px 0;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+    }
+
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border: 4px solid #FF9F55;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .left {
+        right: 5%;
+        padding-right: 40px;
+    }
+
+    .right {
+        left: 50%;
+        padding-left: 40px;
+    }
+
+    .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid #474e5d;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #474e5d;
+    }
+
+    .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid #474e5d;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #474e5d transparent transparent;
+    }
+
+    .left::after {
+        right: -16px;
+    }
+
+    .right::after {
+        left: -16px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .left .timeline-content {
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    .right .timeline-content {
+        margin-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid #474e5d;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #474e5d transparent transparent;
+    }
+
+    .left::after, .right::after {
+        left: 15px;
+    }
+
+    .right {
+        left: 0%;
+    }
+    
+    .left .timeline-content {
+        text-align: left;
+        margin-right: 0;
+    }
+
+    .right .timeline-content {
+        margin-left: 0;
+    }
+}
+
+.certifications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.certification-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.certification-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.certification-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.certification-date {
+    font-size: 0.9em;
+    color: #666;
+    float: right;
 }
