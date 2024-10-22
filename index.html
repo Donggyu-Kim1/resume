@@ -6,6 +6,53 @@
     <title>김동규/서비스 기획 이력서</title>
     <link rel="stylesheet" href="index.css">
     <style>
+        /* 기존 스타일은 유지하고 모달 관련 스타일 추가 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+
+        .timeline-content a {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .timeline-content a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -181,5 +228,146 @@
             </div>
         </div>
     </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-content-area"></div>
+        </div>
+    </div>
+    <script>
+        // 모달 관련 JavaScript
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content-area');
+        const closeButton = document.getElementsByClassName('close-button')[0];
+
+        // 프로젝트 상세 정보 객체
+        const projectDetails = {
+            'museum-project': {
+                title: 'The Color Line: 색을 넘어선 편견 없는 세상',
+                period: '2021.04.05 ~ 2021.06.14',
+                description: `
+                    <h3>프로젝트 개요</h3>
+                    <p>인종차별을 주제로 한 전시를 기획하고 제작하였습니다.</p>
+                    <h3>주요 성과</h3>
+                    <ul>
+                        <li>전시 컨셉 및 동선 기획</li>
+                        <li>작품 선정 및 배치</li>
+                        <li>관람객 피드백 시스템 구축</li>
+                    </ul>
+                `
+            },
+            'hobbyist-project': {
+                title: '호비스트',
+                period: '2021.09.13 ~ 2021.12.13',
+                description: `
+                    <h3>프로젝트 개요</h3>
+                    <p>취미 생활을 공유하고 소통할 수 있는 플랫폼을 기획하였습니다.</p>
+                    <h3>주요 성과</h3>
+                    <ul>
+                        <li>서비스 기획 및 프로토타입 제작</li>
+                        <li>사용자 조사 및 피드백 수렴</li>
+                        <li>수익 모델 구축</li>
+                    </ul>
+                `
+            },
+            'financial-contest': {
+                title: '직업대체안심보험',
+                period: '2023.12.14 ~ 2024.2.28',
+                description: `
+                    <h3>프로젝트 개요</h3>
+                    <p>AI 시대의 직업 대체 위험에 대비하는 보험 상품을 기획하였습니다.</p>
+                    <h3>주요 성과</h3>
+                    <ul>
+                        <li>시장 조사 및 경쟁 분석</li>
+                        <li>상품 구조 설계</li>
+                        <li>리스크 분석 및 대응 방안 수립</li>
+                    </ul>
+                `
+            },
+            'internship': {
+                title: '동계 대학생행정체험연수',
+                period: '2024.01.04 ~ 2024.01.31',
+                description: `
+                    <h3>주요 업무</h3>
+                    <ul>
+                        <li>행정 업무 프로세스 학습</li>
+                        <li>민원 처리 및 문서 작성</li>
+                        <li>부서 간 협업 프로젝트 참여</li>
+                    </ul>
+                `
+            },
+            'stalk': {
+                title: '주식 커뮤니티 Stalk',
+                period: '2024.08.26 ~ 2024.09.02',
+                description: `
+                    <h3>프로젝트 개요</h3>
+                    <p>주식 정보를 공유하고 소통하는 커뮤니티 플랫폼을 개발하였습니다.</p>
+                    <h3>주요 성과</h3>
+                    <ul>
+                        <li>커뮤니티 기능 설계 및 구현</li>
+                        <li>실시간 주가 정보 연동</li>
+                        <li>사용자 인터페이스 개선</li>
+                    </ul>
+                `
+            },
+            'gamgyul-house': {
+                title: '감귤하우스',
+                period: '2024.09.20 ~ 2024.10.14',
+                description: `
+                    <h3>프로젝트 개요</h3>
+                    <p>제주도 감귤 농가와 소비자를 연결하는 플랫폼을 개발하였습니다.</p>
+                    <h3>주요 성과</h3>
+                    <ul>
+                        <li>플랫폼 기획 및 개발</li>
+                        <li>농가 매칭 시스템 구축</li>
+                        <li>결제 및 배송 시스템 연동</li>
+                    </ul>
+                `
+            },
+            'education': {
+                title: '모두연_오름캠프 벡엔드 Django 2기',
+                period: '2024-06-17 ~ 2024-10-14',
+                description: `
+                    <h3>교육 내용</h3>
+                    <ul>
+                        <li>Django 프레임워크 학습</li>
+                        <li>REST API 설계 및 구현</li>
+                        <li>데이터베이스 설계 및 최적화</li>
+                        <li>실전 프로젝트 수행</li>
+                    </ul>
+                `
+            }
+        };
+
+        // 타임라인 링크 클릭 이벤트 처리
+        document.querySelectorAll('.timeline-content a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = link.getAttribute('href').replace('.html', '');
+                const project = projectDetails[projectId];
+                
+                if (project) {
+                    modalContent.innerHTML = `
+                        <h2>${project.title}</h2>
+                        <p><strong>기간:</strong> ${project.period}</p>
+                        ${project.description}
+                    `;
+                    modal.style.display = 'block';
+                }
+            });
+        });
+
+        // 모달 닫기 버튼 이벤트
+        closeButton.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // 모달 외부 클릭 시 닫기
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
