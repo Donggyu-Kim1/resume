@@ -1,3 +1,4 @@
+/* 기본 레이아웃 및 타이포그래피 설정 */
 body {
     font-family: 'Noto Sans KR', Arial, sans-serif;
     line-height: 1.6;
@@ -6,97 +7,110 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+
+/* 헤더 스타일링 */
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+
 h1, h2 {
     border-bottom: 2px solid #333;
     padding-bottom: 10px;
 }
+
 h1 {
     font-size: 2em;
 }
+
 h2 {
     font-size: 1.5em;
     margin-top: 30px;
 }
+
+/* 프로필 섹션 스타일링 */
 .profile-container {
     display: flex;
     align-items: flex-start;
     gap: 20px;
     margin-bottom: 20px;
 }
+
 .profile-img {
     width: 200px;
     height: auto;
     flex-shrink: 0;
 }
+
 .profile-content {
     flex-grow: 1;
 }
+
+/* 일반 섹션 스타일링 */
 .section {
     margin-bottom: 20px;
 }
+
 .section-title {
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+.main-section {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* 리스트 스타일링 */
 ul {
     list-style-type: none;
     padding-left: 0;
     margin: 0;
 }
+
 li {
     margin-bottom: 5px;
 }
+
+/* 링크 스타일링 */
 a {
     color: #0066cc;
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
-.main-section {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
+
+/* 스킬 태그 스타일링 */
 .skills {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
+
 .skill-tag {
     background-color: #dfe2f5;
     padding: 5px 10px;
     border-radius: 5px;
 }
+
+/* 컨텐츠 섹션 스타일링 */
 .project, .education, .experience {
     margin-bottom: 20px;
 }
-@media (max-width: 600px) {
-    .profile-container {
-        flex-direction: column;
-    }
-    .profile-img {
-        margin-bottom: 20px;
-    }
-}
-.toggle-content {
-    display: none;
-}
-.toggle-btn {
-    cursor: pointer;
-    color: #0066cc;
-    text-decoration: underline;
-}
-.header {
-    text-align: center;
-    padding: 20px 0;
-}
+
+/* 2단 레이아웃 */
 .two-column {
     display: flex;
     justify-content: space-between;
 }
+
 .column {
     width: 48%;
 }
+
+/* 타임라인 스타일링 */
 .timeline-section {
     margin-bottom: 50px;
 }
@@ -105,8 +119,6 @@ a:hover {
     text-align: center;
     margin-bottom: 30px;
 }
-
-/* ... (이전 스타일은 동일) ... */
 
 .timeline {
     position: relative;
@@ -125,87 +137,200 @@ a:hover {
     margin-left: -3px;
 }
 
-    .timeline-item {
-        padding: 10px 0;
-        position: relative;
-        background-color: inherit;
-        width: 50%;
-    }
-
-    .timeline-item::after {
-        content: '';
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        background-color: white;
-        border: 4px solid #FF9F55;
-        top: 15px;
-        border-radius: 50%;
-        z-index: 1;
-    }
-
-    .left {
-        right: 5%;
-        padding-right: 40px;
-    }
-
-    .right {
-        left: 50%;
-        padding-left: 40px;
-    }
-
-    .left::before {
-        content: " ";
-        height: 0;
-        position: absolute;
-        top: 22px;
-        width: 0;
-        z-index: 1;
-        right: 30px;
-        border: medium solid #474e5d;
-        border-width: 10px 0 10px 10px;
-        border-color: transparent transparent transparent #474e5d;
-    }
-
-    .right::before {
-        content: " ";
-        height: 0;
-        position: absolute;
-        top: 22px;
-        width: 0;
-        z-index: 1;
-        left: 30px;
-        border: medium solid #474e5d;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent #474e5d transparent transparent;
-    }
-
-    .left::after {
-        right: -16px;
-    }
-
-    .right::after {
-        left: -16px;
-    }
-
-    .timeline-content {
-        padding: 20px;
-        background-color: white;
-        position: relative;
-        border-radius: 6px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .left .timeline-content {
-        text-align: right;
-        margin-right: 20px;
-    }
-
-    .right .timeline-content {
-        margin-left: 20px;
+.timeline-item {
+    padding: 10px 0;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
 }
 
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.timeline-content a {
+    display: block;  /* inline-block에서 block으로 변경 */
+    margin: 5px 0;   /* 상하 여백만 적용 */
+    text-decoration: none;
+    color: #007bff;
+}
+
+.timeline-content a:hover {
+    text-decoration: underline;
+}
+
+/* 타임라인 좌우 아이템 스타일링 */
+.left {
+    right: 5%;
+    padding-right: 40px;
+}
+
+.right {
+    left: 50%;
+    padding-left: 40px;
+}
+
+.left .timeline-content {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.right .timeline-content {
+    margin-left: 20px;
+}
+
+/* 타임라인 화살표 및 점 스타일링 */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left::before, .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+}
+
+.left::before {
+    right: 30px;
+    border: medium solid #474e5d;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #474e5d;
+}
+
+.right::before {
+    left: 30px;
+    border: medium solid #474e5d;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #474e5d transparent transparent;
+}
+
+.left::after {
+    right: -16px;
+}
+
+.right::after {
+    left: -16px;
+}
+
+/* 자격증 섹션 스타일링 */
+.certifications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.certification-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.certification-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.certification-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.certification-date {
+    font-size: 0.9em;
+    color: #666;
+    float: right;
+}
+
+/* 모달 스타일링 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 3% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 84vh;
+    overflow-y: auto; /* 내용이 넘치면 스크롤 생성 */
+}
+
+/* 스크롤바 스타일링 */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 모달 내용 여백 조정 */
+#modal-content-area {
+    padding: 0 20px;
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+/* 반응형 디자인 */
 @media screen and (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+    }
+    
+    .profile-img {
+        margin-bottom: 20px;
+    }
+    
     .timeline::after {
         left: 31px;
     }
@@ -239,33 +364,4 @@ a:hover {
     .right .timeline-content {
         margin-left: 0;
     }
-}
-
-.certifications-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.certification-item {
-    background-color: #f8f9fa;
-    border-left: 4px solid #007bff;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    transition: all 0.3s ease;
-}
-
-.certification-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.certification-name {
-    font-weight: bold;
-    color: #333;
-}
-
-.certification-date {
-    font-size: 0.9em;
-    color: #666;
-    float: right;
 }
