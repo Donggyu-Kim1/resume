@@ -46,6 +46,31 @@ h2 {
     flex-grow: 1;
 }
 
+.inline-icon {
+    height: 1em;  /* 현재 글자 크기에 맞춤 */
+    width: 1em;   /* 정사각형 비율 유지 */
+    vertical-align: middle; /* 텍스트와 수직 정렬 */
+    margin-right: 0.3em;    /* 이미지와 텍스트 사이 여백 */
+}
+
+.list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list li {
+    position: relative;
+    padding-left: 20px;  /* 불릿과 텍스트 사이 간격 */
+    margin-bottom: 10px; /* 항목 간 간격 */
+}
+
+.list li::before {
+    content: "•";        /* 불릿 문자 */
+    position: absolute;
+    left: 5px;          /* 불릿 위치 조정 */
+    color: #000000;        /* 불릿 색상 */
+}
+
 /* 일반 섹션 스타일링 */
 .section {
     margin-bottom: 20px;
@@ -93,6 +118,37 @@ a:hover {
     background-color: #dfe2f5;
     padding: 5px 10px;
     border-radius: 5px;
+    font-weight: bold;
+}
+
+/* 자격증 섹션 스타일링 */
+.certifications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.certification-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.certification-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.certification-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.certification-date {
+    font-size: 0.9em;
+    color: #666;
+    float: right;
 }
 
 /* 컨텐츠 섹션 스타일링 */
@@ -225,36 +281,6 @@ a:hover {
 
 .right::after {
     left: -16px;
-}
-
-/* 자격증 섹션 스타일링 */
-.certifications-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.certification-item {
-    background-color: #f8f9fa;
-    border-left: 4px solid #007bff;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    transition: all 0.3s ease;
-}
-
-.certification-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.certification-name {
-    font-weight: bold;
-    color: #333;
-}
-
-.certification-date {
-    font-size: 0.9em;
-    color: #666;
-    float: right;
 }
 
 /* 모달 스타일링 */
